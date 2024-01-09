@@ -10,7 +10,7 @@
 * - last year: year = current year - 1
 * - Long time ago: everything else
 *
-* Lastly, please write a unit test for this function
+* Lastly, please write a unit test for calculateRelativeDate function
 * */
 
 const calculateRelativeDate = (inputDate) => {
