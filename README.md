@@ -36,7 +36,7 @@ To set up unit test, file must be named with `.test.js` and can be run by below 
    ```
 
 # Exercises
-There 3 exercises:
+There 3 exercises and instruction is provided in each file:
 1) Numeric Input Component (src/exercises/numeric-input.js)
 2) Relative Date Util function (src/exercises/relative-date.js and src/exercises/relative-date.test.js)
 3) Shopping Cart   (src/exercises/shopping-cart.js)
