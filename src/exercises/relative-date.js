@@ -1,11 +1,11 @@
 /*
 * Write a function that will take a date and compare with today date and return text:
 * - Today: same year, same month, same date
-* - Yesterday: same year, same month, date = today - 1
-* - This week: same year, same month, today - 7 < date < today - 1
-* - Last week: same year, same month, date = today - 7
-* - This month: same year, same month, date < today - 7
-* - Last month: same year, month = current month - 1
+* - Yesterday: date = today - 1
+* - This week: today - 7 < date < today - 1
+* - Last week: today - 14 < date <= today - 7
+* - This month: same year, same month, date <= today - 14
+* - Last month: month = current month - 1
 * - This year: same year
 * - last year: year = current year - 1
 * - Long time ago: everything else
