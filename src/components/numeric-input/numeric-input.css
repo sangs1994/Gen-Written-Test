@@ -1,0 +1,23 @@
+.c-numeric-input-error {
+    outline: 0px;
+    border: 2px solid red;
+}
+
+.c-numeric-input-error+.c-numeric-input-error-msg{
+    color:red;
+}
+
+.c-numeric-input-valid {
+    outline: 0px;
+    border: 2px solid green;
+}
+
+.c-numeric-input-valid+.c-numeric-input-error-msg{
+    color:green;
+}
+
+.c-numeric-input-error-msg {
+    display:none;
+    font-size: 0.8em;
+	position: absolute;
+}
