@@ -24,9 +24,9 @@ const calculateRelativeDate = (inputDate) => {
       return 'Today: same year, same month, same date';
   } else if (yearDiff === 0 && monthDiff === 0 && dayDiff === 1) {
       return 'Yesterday: date = today - 1';
-  } else if (dayDiff < 7 && dayDiff > 0) {
+  } else if (monthDiff===0 && yearDiff === 0 && dayDiff < 7 && dayDiff > 0) {
       return 'This week: today - 7 < date < today - 1';
-  } else if (dayDiff >= 7 && dayDiff <= 13) {
+  } else if (monthDiff===0 && yearDiff === 0 && dayDiff >= 7 && dayDiff <= 13) {
       return 'Last week: today - 14 < date <= today - 7';
   } else if (yearDiff === 0 && monthDiff === 0 && dayDiff <= 14) {
       return 'This month: same year, same month, date <= today - 14';
