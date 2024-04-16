@@ -17,8 +17,50 @@
 const View = {
   init: () => {
     const tbodyElem = document.getElementById('shopping-cart-tbl').querySelector('tbody');
-
     console.log('TODO: Please see the above requirement');
   }
 };
+
+/***Async/ Await using Arrow function***/
+async function getproductDetails() {
+  try {
+    const response = await fetch("http://localhost:4002/products");
+    const products = await response.json();
+    return products;
+  } catch (error) {
+    console.error(`Error: ${error.message}`);
+  }  
+};
+
+async function getCartItems() {
+  try {
+    const response = await fetch("http://localhost:4002/cart");
+    const cartItems = await response.json();
+    return cartItems;
+  } catch (error) {
+    console.error(`Error: ${error.message}`);
+  } 
+}
+
+/***Async/ Await using IIFE***/
+(async function () {
+  const cartItems = await getCartItems();
+  const productDetails = await getproductDetails();
+
+  const DisplayCartItems = cartItems.map(itemId => {
+    return productDetails.find(product => product.id === itemId.id);
+  });
+
+  const table = document.getElementById('shopping-cart-tbl');
+  DisplayCartItems.forEach(item => {
+        const row = table.insertRow();
+        const idCell = row.insertCell(0);
+        const itemCell = row.insertCell(1);
+        idCell.textContent = item.id;
+        itemCell.textContent = item.name; 
+    });
+})();
+
+
+
 document.addEventListener('DOMContentLoaded', View.init);
