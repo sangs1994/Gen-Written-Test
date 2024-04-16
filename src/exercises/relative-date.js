@@ -14,7 +14,31 @@
 * */
 
 const calculateRelativeDate = (inputDate) => {
-  return `TODO: Please see the above requirement`;
+  const formatDate = new Date(inputDate);
+  const today = new Date();
+  const yearDiff = today.getFullYear() - formatDate.getFullYear();
+  const monthDiff = today.getMonth() - formatDate.getMonth();
+  const dayDiff = today.getDate() - formatDate.getDate();
+
+  if (yearDiff === 0 && monthDiff === 0 && dayDiff === 0) {
+      return 'Today: same year, same month, same date';
+  } else if (yearDiff === 0 && monthDiff === 0 && dayDiff === 1) {
+      return 'Yesterday: date = today - 1';
+  } else if (dayDiff < 7 && dayDiff > 0) {
+      return 'This week: today - 7 < date < today - 1';
+  } else if (dayDiff >= 7 && dayDiff <= 13) {
+      return 'Last week: today - 14 < date <= today - 7';
+  } else if (yearDiff === 0 && monthDiff === 0 && dayDiff <= 14) {
+      return 'This month: same year, same month, date <= today - 14';
+  } else if (yearDiff === 0 && monthDiff === 1) {
+      return 'Last month: month = current month - 1';
+  } else if (yearDiff === 0) {
+      return 'This year: same year';
+  } else if (yearDiff === 1) {
+      return 'last year: year = current year - 1';
+  } else {
+      return 'Long time ago: everything else';
+  }
 };
 
 const View = {
