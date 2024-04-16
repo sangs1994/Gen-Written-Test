@@ -15,10 +15,7 @@
             <div data-tab="0">
                 <h1>Numeric Input Component</h1>
                 <label>Enter Number: </label>
-                <input class="c-numeric-input" type="text" 
-                    oninput="NumericInput.validateInput(event)"
-                    onblur="NumericInput.blurIn(event)" 
-                    onfocusout="NumericInput.focusOut(event)"/>
+                <input class="c-numeric-input" type="text" />
                 <span class="c-numeric-input-error-msg">Invalid Value</span>
             </div>
             <div data-tab="1">
@@ -46,7 +43,6 @@
 </div>
 
 <script type="module" src="src/app.js" defer></script>
-<script type="text/javascript" src="./src/exercises/numeric-input.js"></script>
-<link rel="stylesheet" href="/src/components/numeric-input/numeric-input.css" />
+<link rel="stylesheet" href="src/components/numeric-input/numeric-input.css" />
 </body>
 </html>

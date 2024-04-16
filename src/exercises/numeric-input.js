@@ -17,7 +17,6 @@
 * Lastly, please add some css for c-numeric-input--error and c-numeric-input--valid to show
 * red or green border to the input
 * */
-
 const numericValue = document.querySelector('.c-numeric-input');
 const errorMsg = document.querySelector('.c-numeric-input-error-msg');
 
@@ -60,4 +59,8 @@ const NumericInput = {
   
 };
 document.addEventListener('DOMContentLoaded', NumericInput.init);
+numericValue.addEventListener('focusout',NumericInput.focusOut);
+numericValue.addEventListener('blur',NumericInput.blurIn);
+numericValue.addEventListener('input',NumericInput.validateInput);
+export {NumericInput};
 
