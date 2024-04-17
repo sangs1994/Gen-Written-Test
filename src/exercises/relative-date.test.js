@@ -11,8 +11,8 @@ describe('DOM Manipulation', () => {
     expect(el).dom.to.equal('<label>Input Date:</label>');
   });
   it('Check for Input Date Input ', async () => {
-    const el = await fixture(`<input type="date" id="relative-date-input" /> <br/>`);
-    expect(el).dom.to.equal('<input type="date" id="relative-date-input" /> <br/>');
+    const el = await fixture(`<input type="date" id="relative-date-input"/>`);
+    expect(el).dom.to.equal('<input type="date" id="relative-date-input"/>');
     expect(el.getAttribute('id')).to.equal('relative-date-input');
   });
   it('Check for Span Label ', async () => {
@@ -34,7 +34,6 @@ describe('DOM Manipulation', () => {
 });
 
 describe('Calculate Relative Date', () => {
-
   const today  = new Date();
   it('Today', () => {
     const input  = new Date();
@@ -47,6 +46,14 @@ describe('Calculate Relative Date', () => {
     const yesterday = new Date();
     yesterday.setDate(today.getDate() - 1);
     const expected = 'Yesterday: date = today - 1';
+    const actual = calculateRelativeDate(yesterday);
+    expect(actual).to.equal(expected);
+  });
+
+  it('Yesterday Failure Case', () => {
+    const yesterday = new Date();
+    yesterday.setDate(today.getDate() - 1);
+    const expected = 'Yesterday: date = today - 12';
     const actual = calculateRelativeDate(yesterday);
     expect(actual).to.equal(expected);
   });
@@ -103,6 +110,4 @@ describe('Calculate Relative Date', () => {
     const actual = calculateRelativeDate(longTimeAgo);
     expect(actual).to.equal(expected);
   });
-  
-  
 });
