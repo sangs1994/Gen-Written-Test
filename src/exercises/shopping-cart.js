@@ -54,10 +54,10 @@ async function getCartItems() {
   const table = document.getElementById('shopping-cart-tbl');
   DisplayCartItems.forEach(item => {
         const row = table.insertRow();
-        const idCell = row.insertCell(0);
-        const itemCell = row.insertCell(1);
-        idCell.textContent = item.id;
-        itemCell.textContent = item.name; 
+        const idRow = row.insertCell(0);
+        const itemRow = row.insertCell(1);
+        idRow.textContent = item.id;
+        itemRow.textContent = item.name; 
     });
 })();
 
