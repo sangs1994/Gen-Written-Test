@@ -1,5 +1,37 @@
 import {calculateRelativeDate} from './relative-date';
-import { expect } from '@open-wc/testing';
+import { html,fixture,fixtureCleanup,elementUpdated,expect } from '@open-wc/testing';
+
+describe('DOM Manipulation', () => {
+  it('Can semantically compare <h1> dom trees', async () => {
+    const el = await fixture(`<h1>Relative Date</h1>`);
+    expect(el).dom.to.equal('<h1>Relative Date</h1>');
+  });
+  it('Check for Input Date Label ', async () => {
+    const el = await fixture(`<label>Input Date:</label>`);
+    expect(el).dom.to.equal('<label>Input Date:</label>');
+  });
+  it('Check for Input Date Input ', async () => {
+    const el = await fixture(`<input type="date" id="relative-date-input" /> <br/>`);
+    expect(el).dom.to.equal('<input type="date" id="relative-date-input" /> <br/>');
+    expect(el.getAttribute('id')).to.equal('relative-date-input');
+  });
+  it('Check for Span Label ', async () => {
+    const el = await fixture(`<label class="relative-date-label">Output:</label>`);
+    expect(el).to.have.class('relative-date-label');
+  });
+  it('Check for Span Attribute ', async () => {
+    const el = await fixture(`<span id="relative-date-msg"></span> <br/>`);
+    expect(el.getAttribute('id')).to.equal('relative-date-msg');
+  });
+  it('Date Button Validation', async () => {
+    const el = await fixture(html`<button id="relative-date-btn">Get Relative Date</button>`);
+    expect(el.id).to.equal('relative-date-btn');
+    expect(el.getAttribute('id')).to.equal('relative-date-btn');
+  });
+  afterEach(() => {
+    fixtureCleanup();
+  });
+});
 
 describe('Calculate Relative Date', () => {
 
